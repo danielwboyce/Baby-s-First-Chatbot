@@ -14,8 +14,10 @@
 
     <script src="https://kit.fontawesome.com/58737f1cb4.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          type ="text/css"
+          href="{{ url_for('static',filename='styles/style.css') }}" />
     <title>Chatbot</title>
-
   </head>
 
   <body translate="no">
@@ -40,11 +42,17 @@
             </nav>
           </header>
 
-          <div class="messages-feed"></div>
+          <div class="messages-feed">
+            {% for n in messages_array %}
+            <div class="user-msg">{{n}}</div>
+            {% endfor %}
+          </div>
           <div class="input-line">
-            <form action="" method="post">
-              <input type="text" id="text-entry" name="user-message-input" placeholder="Message" required></input>
-              <input type="submit" id="send-button" value="Send"></input>
+            <form action="" method="post" novalidate>
+              {{ form.hidden_tag() }}
+
+              <input type="text" id="user_message" name="user_message" placeholder="Message" required></input>
+              <input type="submit" id="submit_button" class="submit_button" name="submit" value="Send"></input>
             </form>
           </div>
 

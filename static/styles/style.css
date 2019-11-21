@@ -178,12 +178,12 @@ nav {
   color: var(--outlines);
 }
 
-#text-entry {
+#user_message {
   flex-grow: 1;
   padding-left: 5px;
 }
 
-#send-button {
+.submit_button {
   background-color: var(--outlines);
   color: var(--navbar-background);
   border-radius: 1em;
